@@ -1,0 +1,30 @@
+//This is the code for the teleoperated period of the match
+//It is very simple because it is all in a while loop, you will see
+//You have to define your variables outside of the separate classes ie. teleopInit()
+//Then there is a class called RobotInit(), here you complete your variables; I will explain
+//Outside of the classes to predefine your variables you have to put the variable then what it represents ie. Joystick control;
+//Joystick is what the variable defines and control is the variable
+//To fully define it in RobotInit() you have to do it like this: control = Joystick(int);
+//So variable equals then finish the defining statement
+//This allows the robot to initialize(hence the "init") the varables before you even begin to control the bot, this avoids many problems
+//Some problems you encounter while doing this involve the robot not properly recognizing variables leading to runtime errors in the
+//Console driver station and a bad score at competition
+
+public void teleopInit() 
+    {	        
+        while(isOperatorControl() && isEnabled()) //the loop activates when you click the "TeleOperated" button and enable control
+        {
+        	drive.arcadeDrive(joystick); //The joystick varable, for me I just put it as joystick, goes inside the brackets. The drive in drive.arcadeDrive is the RobotDrive variable. The arcadeDrive is a driving library that allows you to control moving with only one joystick, the opposite of this with two joysticks is tankDrive.
+        	
+        	if(joystick.getRawButton(1)) //Constantly looks for button 1 to be pressed on the specified joystick and opens the solenoids for the compressor
+        	{
+        		solenoid.set(true); //PLEASE READ: We are still testing the true/false part, I do not know if true opens or closes the solenoid
+        	}
+        	else if(joystick.getRawButton(2)) //Looks for button 2 to be pressed and sets the solenoid to be false
+        	{
+        		solenoid.set(false);
+        	}
+        }
+    	
+    	if (autonomousCommand != null) autonomousCommand.cancel(); //Was already here when I made the project in Eclipse, I didn't delete it
+    }
