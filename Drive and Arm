@@ -1,0 +1,11 @@
+
+//set drive
+RobotDrive drive = new RobotDrive(0,1,2,3) //4 motor drive
+
+// invert motor
+drive.setInvertedMotor(MotorType.kFrontLeft, true);
+
+
+
+Victor for drive 
+talon for arm
