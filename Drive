@@ -1,0 +1,61 @@
+//set drive
+RobotDrive drive = new RobotDrive(0,1,2,3) //4 motor drive
+
+// invert motor
+drive.setInvertedMotor(MotorType.kFrontLeft, true);
+
+public class RobotTemplate extends SampleRobot {
+
+	RobotDrive myDrive;
+	Victor frontLeft, frontRight, rearLeft, rearRight;
+	
+    public void robotInit() {
+    	frontLeft = new Victor(1);
+    	frontRight = new Victor(2);
+    	rearLeft = new Victor (3);
+    	rearRight = new Victor (4);
+    	myDrive = new RobotDrive(frontLeft, frontRight, rearLeft, rearRight);
+    }
+
+
+
+\\*********************
+\\autonomous drive
+\\*********************
+public class RobotTemplate extends SampleRobot {
+
+	RobotDrive myDrive;
+	Joystick driveStick;
+	Gyro gyro;
+	static final double Kp = 0.03;
+	
+    public void robotInit() {
+    	myDrive = new RobotDrive(1,2,3,4);
+    	gyro = new AnalogGyro(1);
+    }
+
+    public void autonomousPeriodic() {
+    	while (isAutonomous() && isEnabled()) {
+    		double angle = gyro.getAngle();
+    		myDrive.arcadeDrive(-1.0, -angle * Kp);
+    		Timer.delay(0.01);
+    		
+    		
+//    		
+Compressor c = new Compressor(0);
+c.setClosedLoopControl(true);
+//
+
+
+
+Victor for drive 
+talon for arm
+
+
+
+Using the motor safety feature
+
+Motor Safety is a mechanism in WPILib that takes the concept of a watchdog and breaks it out into one watchdog (Motor Safety timer) for each individual actuator. Note that this protection mechanism is in addition to the System Watchdog which is controlled by the Network Communications code and the FPGA and will disable all actuator outputs if it does not receive a valid data packet for 125ms.
+
+exampleJaguar.setSafetyEnabled(true);
+exampleJaguar.setSafetyEnabled(false);
