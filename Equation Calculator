@@ -1,2 +1,120 @@
 //I have been working on a calclator that not only does basic mathematic calculations but
 //utilizes Java's math capabilities such as Math.PI
+//This was done using Eclipse
+
+import java.util.Scanner;
+
+public static void main(String[] args)
+	{
+		Scanner input = new Scanner(System.in);
+		
+		while(true)
+		{
+			System.out.println("What calculator would you like to use?");
+			System.out.println("0-Quit 1-Adding 2-Subtracting 3-Multiplying 4-Dividing 5-Formula Calculator");
+			double calculation = input.nextDouble();
+			
+			if(calculation == 1)
+			{
+				System.out.println("Enter first number:");
+				double addnum1 = input.nextDouble();
+				System.out.println("Enter second number:");
+				double addnum2 = input.nextDouble();
+				double addnum3 = addnum1 + addnum2;
+				System.out.println("Your answer is " + addnum3);
+			}
+			
+			else if(calculation == 2)
+			{
+				System.out.println("Enter first number:");
+				double subnum1 = input.nextDouble();
+				System.out.println("Enter second number:");
+				double subnum2 = input.nextDouble();
+				double subnum3 = subnum1 - subnum2;
+				System.out.println("Your answer is " + subnum3);
+			}
+			
+			else if(calculation == 3)
+			{
+				System.out.println("Enter first number:");
+				double mulnum1 = input.nextDouble();
+				System.out.println("Enter second number:");
+				double mulnum2 = input.nextDouble();
+				double mulnum3 = mulnum1 * mulnum2;
+				System.out.println("Your answer is " + mulnum3);
+			}
+			
+			else if(calculation == 4)
+			{
+				System.out.println("Enter first number:");
+				double divnum1 = input.nextDouble();
+				System.out.println("Enter second number:");
+				double divnum2 = input.nextDouble();
+				double divnum3 = divnum1 / divnum2;
+				System.out.println("Your answer is " + divnum3);
+			}
+			else if(calculation == 5)
+			{
+				System.out.println("You have chosen the Formula Calculator.");
+				System.out.println("Is this correct? 1-yes 2-no");
+				double choice = input.nextDouble();
+				if(choice == 1)
+				{
+					while(true)
+					{
+						System.out.println("What formula would you like?");
+						System.out.println("0-Exit 1-PythagoreanTheorum 2-AreaOfCircle 3-AreaOfSphere 4-AreaOfTriangle");
+						double calc = input.nextDouble();
+						
+						if(calc == 1)
+						{
+							System.out.println("Enter A:");
+							double py1 = input.nextDouble();
+							System.out.println("Enter B:");
+							double py2 = input.nextDouble();
+							double py3 = (py1 * py1) * (py2 * py2);
+							System.out.println("Your answer before squaring is: " + py3);
+							long py4 = (long)py3 * (long)py3;
+							System.out.println("Your answer squared is: " + py4);
+						}
+						else if(calc == 2)
+						{
+							System.out.println("Enter radius:");
+							double cir1 = input.nextDouble();
+							double cir2 = cir1 * Math.PI;
+							System.out.println("The area is: " + cir2);
+						}
+						else if(calc == 3)
+						{
+							System.out.println("Enter radius:");
+							double sp1 = input.nextDouble();
+							double sp2 = 4 * Math.PI * (sp1 * sp1);
+							System.out.println("The area is: " + sp2);
+						}
+						else if(calc == 4)
+						{
+							System.out.println("Enter height:");
+							double tri1 = input.nextDouble();
+							System.out.println("Enter base:");
+							double tri2 = input.nextDouble();
+							double tri3 = (tri1 * tri2) / 2;
+							System.out.println("The area is: " + tri3);
+						}
+						else if(calc == 0)
+						{
+							break;
+						}
+					}
+				}
+				else if(choice == 2)
+				{
+					
+				}
+			}
+			else if(calculation == 0)
+			{
+				break;
+			}
+		}
+	}
+}
