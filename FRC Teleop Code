@@ -10,7 +10,8 @@
 //Some problems you encounter while doing this involve the robot not properly recognizing variables leading to runtime errors in the
 //Console driver station and a bad score at competition
 
-public void teleopInit() 
+public void teleopInit() // <- I would use teleopPeriodic here.  It may not matter much now but as you add code or if someone comes behind you, it will make more sense.
+                        // Also, if you bug out here somewhere, it will not run again.  The periodic states are run ~ every 20 ms
     {	        
         while(isOperatorControl() && isEnabled()) //the loop activates when you click the "TeleOperated" button and enable control
         {
